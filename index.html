@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
+        </div>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+
+        <div class="card-footer">
+          <button id="configure" class="btn">Configure Password</button>
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
+
+        <div class = "options">
+          <div class = "length-container">
+            Length: 
+            <!--Interested in adding a slider later, if not bored-->
+            <input type = number min = 8 max = 128 value = 8 id = "length">
+          </div>
+
+          <div class = "character-container">
+            Character Types:
+            <div class = "checkbox-list">
+              <input type = "checkbox" id = "lowercase" name = "lowercase" checked>
+              <label for = "lowercase">Lowercase</label>
+              
+              <input type = "checkbox" id = "uppercase" name = "uppercase" checked>
+              <label for = "uppercase">Uppercase</label>
+
+              <input type = "checkbox" id = "numeric" name = "numeric" checked>
+              <label for = "numeric">Numeric</label>
+
+              <input type = "checkbox" id = "special" name = "special" checked>
+              <label for = "special">Special</label>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
