@@ -9,7 +9,7 @@ function CharacterCreator(id, characters) {
   this.characters = characters;
 
   this.makeRandChar = function() {
-    return this.characters[Math.floor(Math.random() * characters.length + 1)];
+    return this.characters[Math.floor(Math.random() * characters.length)];
   };
 }
 
@@ -54,14 +54,16 @@ function generatePassword() {
   let lengthEntry = document.getElementById("length").value;
   let generatedPassword = "";
 
+  //update isActive values
+  criteriaArray.map(charCreator => charCreator.isActive = document.querySelector(charCreator.id).checked);
+
   //filter out unchecked character types
   let filteredCriteria = criteriaArray.filter(charCreator => charCreator.isActive);
 
-  console.log("" +lengthEntry);
   //Use these character types to construct the string
   for (let i = 0; i < lengthEntry; i++) {
     console.log("hey")
-    generatedPassword = generatedPassword + filteredCriteria[Math.floor(Math.random() * criteriaArray.length)].makeRandChar();
+    generatedPassword = generatedPassword + filteredCriteria[Math.floor(Math.random() * filteredCriteria.length)].makeRandChar();
   }
 
   return generatedPassword;
