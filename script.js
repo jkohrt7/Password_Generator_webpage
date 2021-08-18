@@ -13,14 +13,22 @@ const specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*","(", ")", "-",
 /* Utility Functions */
 
 //function that displays html with password criteria
-function displayCriteria() {
-  
+var generateButton = document.querySelector("#generate")
+var optionsDiv = document.querySelector(".options")
+generateButton.addEventListener("click", updateOptions)
+
+function updateOptions(){
+  if (optionsDiv.style.display === "none") {
+    optionsDiv.style.display = "block";
+  } else {
+    optionsDiv.style.display = "none";
+  }
 }
 
 /* Linking buttons, input tags to logic */
 // Add event listener to generate button
-var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener("click", writePassword);
+var submitBtn = document.querySelector("#submitBtn");
+submitBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
@@ -36,19 +44,40 @@ function generatePassword() {
   let lengthEntry = document.getElementById("length").value;
   let generatedPassword = "";
   let viableChars = [];
+  let numChecked = 0;
 
   if(document.getElementById("lowercase").checked){
     viableChars = viableChars.concat(lowercaseCharacters);
+    numChecked++;
   }
   if(document.getElementById("uppercase").checked){
     viableChars = viableChars.concat(uppercaseCharacters);
+    numChecked++;
   }
   if(document.getElementById("numeric").checked) {
     viableChars = viableChars.concat(numericCharacters);
+    numChecked++;
   }
   if(document.getElementById("special").checked) {
     viableChars = viableChars.concat(specialCharacters);
+    numChecked++;
   }
+
+  //Make sure max, min length are correct
+  if (lengthEntry > 128) {
+    return "Maximum password length is 128 characters. Please choose fewer characters."
+  }
+
+  if (lengthEntry < 8) {
+    return "Minimum password length is 8 characters. Please add additional characters."
+  }
+
+  //make sure one box is checked
+  if (numChecked == 0) {
+    return "Please select at least one character type."
+  }
+
+
 
   //Use these character types to construct the string
   for (let i = 0; i < lengthEntry; i++) {

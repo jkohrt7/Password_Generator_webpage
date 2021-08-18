@@ -97,6 +97,10 @@ button[disabled] {
   float: right;
 }
 
+.options button {
+  float: center;
+}
+
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
