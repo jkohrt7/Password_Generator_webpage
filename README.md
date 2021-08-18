@@ -1,8 +1,11 @@
 # Password Generator
 
+
 ## Description
 A simple webpage made with CSS, HTML and JS that generates random strings of characters based on a set of user-specified criteria. 
 In the future, it may be expanded to include options for full words and may be reworked with ReactJS to be a little more user friendly.
+
+---
 
 ## Usage
 The webpage is hosted with Github pages and can be accessed [here](https://jkohrt7.github.io/Password_Generator_webpage/). Clicking on 'generate password' will provide the user with 
@@ -13,8 +16,12 @@ The application can only generate passwords between 8 and 128 characters.
 
 ![A screenshot of the application](/assets/screenshot.jpg)  
 
+---
+
 ## Credits
 The HTML/CSS was provided by Trilogy Education Services as part of the full-stack web dev bootcamp.
+
+---
 
 ## License
 MIT License
